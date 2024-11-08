@@ -1,0 +1,56 @@
+﻿@model QuanLyBanSach_63134277.Models.Sach
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h4>Bạn có muốn xóa sách này?</h4>
+<div>
+    <table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;margin-left:50px;">
+        <tr>
+            <td>
+                <table cellpadding="2" cellspacing="10">
+                    <tr>
+                        <td rowspan="8"><img src="/Images/@Html.DisplayFor(model => model.anh_Sach)" width="100" height="100" /></td>
+                        <td>Mã sách::</td>
+                        <td>@Html.DisplayFor(model => model.ma_Sach)</td>
+                    </tr>
+                    <tr>
+                        <td>Tên sách::</td>
+                        <td>@Html.DisplayFor(model => model.ten_Sach)</td>
+                    </tr>
+                    <tr>
+                        <td>Thể loại:</td>
+                        <td>@Html.DisplayFor(model => model.loai_Sach)</td>
+                    </tr>
+                    <tr>
+                        <td>Giá tiền:</td>
+                        <td>@Html.DisplayFor(model => model.giatien);</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>Mô tả:</td>
+                        <td>@Html.DisplayFor(model => model.mota)</td>
+                    </tr>
+                    <tr>
+                        <td>Loại sách:</td>
+                        <td>@Html.DisplayFor(model => model.ma_LS)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    @using (Html.BeginForm("Delete", "Sach_63134277", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Xóa" class="btn btn-block btn-danger" />
+        </div>
+    }
+</div>
+<p>
+    @Html.ActionLink("Quay lại", "DS")
+</p>
+

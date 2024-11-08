@@ -1,0 +1,31 @@
+﻿@model QuanLyBanSach_63134277.Models.Cart
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = null;
+}
+
+@if (Model != null)
+{
+    <h3>Giỏ hàng <span style="float:right;">@Html.Action("Bag", "Cart_63134277")</span></h3>
+    var tongtien = decimal.Zero;
+    <div style="border: 1px solid #000000">
+        <table class="table">
+            @foreach (var item in Model.Items)
+            {
+                tongtien += (item._sach.giatien.Value * item._sach_soluong);
+                <tr>
+                    <td>
+                        @item._sach.ten_Sach&nbsp;
+                    </td>
+                    <td>@item._sach.giatien</td>
+                </tr>
+            }
+            <tr style="border-top: 1px solid #333">
+                <td>Thành tiền</td>
+                <td>@tongtien</td>
+            </tr>
+        </table>
+    </div>
+
+}
+

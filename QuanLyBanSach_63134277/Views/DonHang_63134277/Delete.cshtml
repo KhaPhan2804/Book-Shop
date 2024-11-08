@@ -1,0 +1,51 @@
+﻿@model QuanLyBanSach_63134277.Models.DonHang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h2>XÓA ĐƠN HÀNG</h2>
+
+<div>
+    <table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;margin-left:50px;">
+        <tr>
+            <td>
+                <table cellpadding="2" cellspacing="10">
+                    <tr>
+                        <td>Mã nhân viên:</td>
+                        <td>@Html.DisplayFor(model => model.ma_DH)</td>
+                    </tr>
+                    <tr>
+                        <td>Tên nhân viên:</td>
+                        <td>@Html.DisplayFor(model => model.Ten_KH)</td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td>@Html.DisplayFor(model => model.email)</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>@Html.DisplayFor(model => model.diachi);</td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td>@Html.DisplayFor(model => model.ngaydat)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    @using (Html.BeginForm("Delete", "DonHang_63134277", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-block btn-danger" />
+
+        </div>
+    }
+</div>
+<p>
+    @Html.ActionLink("Quay lại", "Index")
+</p>

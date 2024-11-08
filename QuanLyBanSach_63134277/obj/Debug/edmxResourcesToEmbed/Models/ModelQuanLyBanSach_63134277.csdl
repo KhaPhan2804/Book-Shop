@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyBanSach_63134277Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MK" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TenHienThi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="RoleID" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ChiTietDonHang">
+    <Key>
+      <PropertyRef Name="ma_CDH" />
+    </Key>
+    <Property Name="ma_CDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ma_DH" Type="Int32" />
+    <Property Name="ma_Sach" Type="Int32" />
+    <Property Name="soluong" Type="Int32" />
+    <Property Name="tong" Type="Int32" />
+    <NavigationProperty Name="DonHang" Relationship="Self.FK__ChiTietDo__ma_DH__5BE2A6F2" FromRole="ChiTietDonHang" ToRole="DonHang" />
+    <NavigationProperty Name="Sach" Relationship="Self.FK__ChiTietDo__ma_Sa__5CD6CB2B" FromRole="ChiTietDonHang" ToRole="Sach" />
+  </EntityType>
+  <EntityType Name="DonHang">
+    <Key>
+      <PropertyRef Name="ma_DH" />
+    </Key>
+    <Property Name="ma_DH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ma_KH" Type="Int32" />
+    <Property Name="Ten_KH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ghichu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ngaydat" Type="DateTime" Precision="0" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK__ChiTietDo__ma_DH__5BE2A6F2" FromRole="DonHang" ToRole="ChiTietDonHang" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK__DonHang__ma_KH__52593CB8" FromRole="DonHang" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="ma_KH" />
+    </Key>
+    <Property Name="ma_KH" Type="Int32" Nullable="false" />
+    <Property Name="ten_KH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="gioitinh" Type="Boolean" />
+    <NavigationProperty Name="DonHangs" Relationship="Self.FK__DonHang__ma_KH__52593CB8" FromRole="KhachHang" ToRole="DonHang" />
+  </EntityType>
+  <EntityType Name="LoaiSach">
+    <Key>
+      <PropertyRef Name="ma_LS" />
+    </Key>
+    <Property Name="ma_LS" Type="Int32" Nullable="false" />
+    <Property Name="ten_LS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Saches" Relationship="Self.FK__Sach__ma_LS__59063A47" FromRole="LoaiSach" ToRole="Sach" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="ma_NV" />
+    </Key>
+    <Property Name="ma_NV" Type="Int32" Nullable="false" />
+    <Property Name="ten_NV" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="chucvu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sach">
+    <Key>
+      <PropertyRef Name="ma_Sach" />
+    </Key>
+    <Property Name="ma_Sach" Type="Int32" Nullable="false" />
+    <Property Name="ten_Sach" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="loai_Sach" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="giatien" Type="Int32" />
+    <Property Name="anh_Sach" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="mota" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ma_LS" Type="Int32" />
+    <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK__ChiTietDo__ma_Sa__5CD6CB2B" FromRole="Sach" ToRole="ChiTietDonHang" />
+    <NavigationProperty Name="LoaiSach" Relationship="Self.FK__Sach__ma_LS__59063A47" FromRole="Sach" ToRole="LoaiSach" />
+  </EntityType>
+  <Association Name="FK__ChiTietDo__ma_DH__5BE2A6F2">
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="0..1" />
+    <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonHang">
+        <PropertyRef Name="ma_DH" />
+      </Principal>
+      <Dependent Role="ChiTietDonHang">
+        <PropertyRef Name="ma_DH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietDo__ma_Sa__5CD6CB2B">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="0..1" />
+    <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="ma_Sach" />
+      </Principal>
+      <Dependent Role="ChiTietDonHang">
+        <PropertyRef Name="ma_Sach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DonHang__ma_KH__52593CB8">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="ma_KH" />
+      </Principal>
+      <Dependent Role="DonHang">
+        <PropertyRef Name="ma_KH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__ma_LS__59063A47">
+    <End Role="LoaiSach" Type="Self.LoaiSach" Multiplicity="0..1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiSach">
+        <PropertyRef Name="ma_LS" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="ma_LS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyBanSach_63134277Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="ChiTietDonHangs" EntityType="Self.ChiTietDonHang" />
+    <EntitySet Name="DonHangs" EntityType="Self.DonHang" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="LoaiSaches" EntityType="Self.LoaiSach" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="Saches" EntityType="Self.Sach" />
+    <AssociationSet Name="FK__ChiTietDo__ma_DH__5BE2A6F2" Association="Self.FK__ChiTietDo__ma_DH__5BE2A6F2">
+      <End Role="DonHang" EntitySet="DonHangs" />
+      <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietDo__ma_Sa__5CD6CB2B" Association="Self.FK__ChiTietDo__ma_Sa__5CD6CB2B">
+      <End Role="Sach" EntitySet="Saches" />
+      <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DonHang__ma_KH__52593CB8" Association="Self.FK__DonHang__ma_KH__52593CB8">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="DonHang" EntitySet="DonHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__ma_LS__59063A47" Association="Self.FK__Sach__ma_LS__59063A47">
+      <End Role="LoaiSach" EntitySet="LoaiSaches" />
+      <End Role="Sach" EntitySet="Saches" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

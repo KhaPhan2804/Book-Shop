@@ -1,0 +1,89 @@
+﻿@model IEnumerable<QuanLyBanSach_63134277.Models.DonHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TenKH", rowsPerPage: 5);
+    @Scripts.Render("~/Scripts/jquery-1.6.2.min.js")
+
+}
+
+
+<center><h4>DANH SÁCH ĐƠN HÀNG</h4></center>
+
+<html>
+<head>
+    <style type="text/css">
+        .grid-footer {
+            color: #000;
+            font: 17px Calibri;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            .grid-footer a {
+                background-color: #ffffff;
+                color: blue;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                padding: 1px 10px 2px 10px;
+            }
+
+                .grid-footer a:active, a:hover {
+                    background-color: #ffffff;
+                    color: #FFAD33;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                }
+
+        .alternatingRowStyle {
+            background-color: aliceblue;
+        }
+
+        table .table1 {
+            text-align: left;
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 800px;
+        }
+
+        .tr, .td {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="gridContent">
+        @ViewBag.TB
+        @grid.GetHtml(
+            tableStyle: "table table-bordered table-hover",
+            footerStyle: "grid-footer",
+            fillEmptyRows: true,
+            mode: WebGridPagerModes.Numeric,
+            alternatingRowStyle: "alternatingRowStyle",
+              columns: new[]  // colums in grid
+             {
+        grid.Column("ma_DH","Mã đơn hàng"), //the model fields to display
+        grid.Column("Ten_KH","Tên khách hàng"),
+        grid.Column("email","Email"),
+        grid.Column("diachi","Địa chỉ"),
+        grid.Column("ghichu","Ghi chú"),
+        grid.Column("ngaydat","Ngày đặt",format:@<text> @item.ngaydat.ToString("dd/MM/yyyy")</text>),
+grid.Column("Chức năng", format: @<text>
+            <a href="@Url.Action("Edit",
+                new { id = item.ma_DH})" class="btn btn-sm btn-success">Cập nhật</a>
+            <a href="@Url.Action("Details",
+                new { id = item.ma_DH})" class="btn btn-sm btn-info">Xem chi tiêt</a>
+            <a href="@Url.Action("Delete",
+                new { id = item.ma_DH})" class="btn btn-sm btn-danger">
+                Xóa
+            </a>
+    </text>),
+
+
+
+
+
+}
+)
+    </div>
+</body>
+</html>

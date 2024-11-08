@@ -1,0 +1,124 @@
+﻿@model IEnumerable<QuanLyBanSach_63134277.Models.Sach>
+
+@{
+    ViewBag.Title = "SP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/GD.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+}
+<html>
+<body>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="/Sach_63134277/Index">Trang chủ</a></li>
+                    <li><a href="/Sach_63134277/SP">Sản phẩm</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading"><center><h1>TỔNG HỢP SÁCH </h1></center></div>
+            </div>
+            @using (Html.BeginForm())
+            {
+                <center>
+                    <div class="form-group form-inline">
+                        <b style="font-size: 15px;">Tìm sách: </b>@Html.TextBox("SearchString", "", new { @class = "form-control" })
+                        <button type="submit" class="btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </center>
+            }
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="product" style="border: 3px solid #000000">
+                        <img src="/Images/@Html.DisplayFor(modelItem => item.anh_Sach)" style="width:300px; height:300px" />
+                    </div>
+                    <div class="caption">
+                        <div class="name">
+                            <center><h3>@Html.DisplayFor(modelItem => item.ten_Sach)</h3></center>
+                        </div>
+                    </div>
+                    <ul class="nav navbar-nav" style="display: inline; padding-left:45px; padding-bottom: 30px;">
+                        <li>
+                            <div class="btn btn-sm btn-outline-info" style="border: 1px solid #000000"> @Html.ActionLink("Xem thêm", "Details", "Sach_63134277", new { id = item.ma_Sach }, "Sach_63134277Controller")</div>
+                        </li>
+                        <li>
+                            <div class="btn btn-sm btn-danger" style="border: 1px solid #000000"><a href="/Cart_63134277/AddToCart/@item.ma_Sach" style="color:white;">Thêm vào giỏ</a></div>
+                        </li>
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="wrap-footer">
+                <div class="row">
+                    <div class="col-md-3 col-footer footer-1">
+                        <img src="~/Images/giga.jpg" style="width: 150px; height: 150px; border: 3px solid #ff0000" />
+                    </div>
+                    <div class="col-md-3 col-footer footer-2">
+                        <div class="heading">
+                            <center><h4>Services</h4></center>
+                        </div>
+                        <ul>
+                            <li style="list-style-type: none;">
+                                <a href="#" style="color:white;">About Us</a>
+                            </li>
+                            <li style="list-style-type: none;">
+                                <a href="#" style="color:white;">Privacy Policy</a>
+                            </li>
+                            <li style="list-style-type: none;">
+                                <a href="#" style="color:white;">
+                                    Terms & Conditions
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-footer footer-3">
+                        <div class="heading">
+                            <center><h4>My Account</h4></center>
+                        </div>
+                        <ul>
+                            <li style="list-style-type: none;">
+                                <a href="#" style="color:white;">Account</a>
+                            </li>
+                            <li style="list-style-type: none;">
+                                <a href="#" style="color:white;">Books</a>
+                            </li>
+                            <li style="list-style-type: none;">
+                                <a href="#" style="color:white;">
+                                    Gift Vouchers
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-footer footer-4">
+                        <div class="heading">
+                            <center><h4>Contact Us</h4></center>
+                        </div>
+                        <ul>
+                            <li style="list-style-type: none;">
+                                <i class="fa fa-home" style="color:white;"> 34 Dương Hở, Vĩnh Trường, Nha Trang</i>
+                            </li>
+                            <li style="list-style-type: none;">
+                                <i class="fa fa-phone" style="color:white;"> 0363559548</i>
+                            </li>
+                            <li style="list-style-type: none;">
+                                <i class="fa fa-envelope" style="color:white;"> luandinh1458@gmail.com</i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

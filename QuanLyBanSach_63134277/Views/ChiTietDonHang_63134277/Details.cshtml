@@ -1,0 +1,40 @@
+﻿@model QuanLyBanSach_63134277.Models.ChiTietDonHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+}
+
+<h4>THÔNG TIN CHI TIẾT</h4>
+<table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;margin-left:50px;">
+    <tr>
+        <td>
+            <table cellpadding="2" cellspacing="10">
+                <tr>
+                    <td>Đơn hàng:</td>
+                    <td>@Html.DisplayFor(model => model.ma_CDH)</td>
+                </tr>
+                <tr>
+                    <td>Mã đơn hàng:</td>
+                    <td>@Html.DisplayFor(model => model.ma_DH)</td>
+                </tr>
+                <tr>
+                    <td>Sách:</td>
+                    <td>@Html.DisplayFor(model => model.Sach.ten_Sach)</td>
+                </tr>
+                <tr>
+                    <td>Số lượng:</td>
+                    <td>@Html.DisplayFor(model => model.soluong)</td>
+                </tr>
+                <tr>
+                    <td>Tổng tiền:</td>
+                    <td>@Html.DisplayFor(model => model.tong)</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<p>
+
+    @Html.ActionLink("Quay lại", "Index")
+</p>

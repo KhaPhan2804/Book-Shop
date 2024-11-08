@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/styleQuanLy.css" rel="stylesheet" />
+</head>
+<body style="margin-top:0px;">
+    <div id="banner" style="top:0px;position:absolute;">HỆ THỐNG QUẢN LÝ THÔNG TIN </div>
+
+    <div id="menu" style="margin-top: 60px;">
+        <div>
+            @Html.ActionLink("TRANG CHỦ", "../Sach_63134277/Index", "TC",
+new { @class = "a" })&nbsp;|&nbsp;
+            @Html.ActionLink("DANH SÁCH KHÁCH HÀNG", "../KhachHang_63134277/Index", "KH",
+           new { @class = "a" })&nbsp;|&nbsp;
+            @Html.ActionLink("QUẢN LÝ NHÂN VIÊN", "../NhanVien_63134277/Index", "NV",
+new { @class = "a" })&nbsp;|&nbsp;
+            @Html.ActionLink("QUẢN LÝ SÁCH", "../Sach_63134277/DS", "DS",
+new { @class = "a" })&nbsp;|&nbsp;
+            @Html.ActionLink("QUẢN LÝ LOẠI SÁCH", "../LoaiSach_63134277/Index", "LS",
+new { @class = "a" })&nbsp;|&nbsp;
+            @Html.ActionLink("QUẢN LÝ ĐƠN HÀNG", "../DonHang_63134277/Index", "DH",
+new { @class = "a" })&nbsp;|&nbsp;
+            @Html.ActionLink("CHI TIẾT ĐƠN HÀNG", "../ChiTietDonHang_63134277/Index", "CTDH",
+new { @class = "a" })&nbsp;|&nbsp;
+            @Html.ActionLink("ĐĂNG XUẤT", "../Account_63134277/Signout", "SO",
+new { @class = "a" })
+
+
+            <hr style="border: 1px solid #000000;" />
+        </div>
+        <div>
+            <p align="right">  @ViewBag.NguoiDung</p>
+        </div>
+    </div>
+    <div id="content">
+        @RenderBody()
+    </div>
+    <div id="footer">
+        Copyright &copy; Phan Anh Kha @DateTime.Now.Year
+    </div>
+</body>
+</html>
+

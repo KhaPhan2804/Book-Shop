@@ -1,0 +1,64 @@
+﻿@model QuanLyBanSach_63134277.Models.KhachHang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutQuanLy.cshtml";
+    string gtinh = "";
+}
+
+<h2>XÓA THÔNG TIN NHÂN VIÊN</h2>
+
+<div>
+    <table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;margin-left:50px;">
+        <tr>
+            <td>
+                <table cellpadding="2" cellspacing="10">
+                    <tr>
+                        <td>Mã khách hàng:</td>
+                        <td>@Html.DisplayFor(model => model.ma_KH)</td>
+                    </tr>
+                    <tr>
+                        <td>Tên khách hàng:</td>
+                        <td>@Html.DisplayFor(model => model.ten_KH)</td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td>@Html.DisplayFor(model => model.sdt)</td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td>@Html.DisplayFor(model => model.diachi);</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Ngày sinh:</td>
+                        <td>@Html.DisplayFor(model => model.ngaysinh)</td>
+                    </tr>
+                    <tr>
+                        <td>Giới tính:</td>
+                        <td>
+                            @{if (Model.gioitinh == true)
+                                { gtinh = "Nam"; }
+                                else
+                                { gtinh = "Nữ"; }
+                              }
+                              @gtinh
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    @using (Html.BeginForm("Delete", "KhachHang_63134277", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-sm btn-danger" />
+
+        </div>
+    }
+</div>
+<p>
+    @Html.ActionLink("Quay lại", "Index")
+</p>

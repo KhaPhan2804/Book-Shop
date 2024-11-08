@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLyBanSach_63134277ModelStoreContainer" CdmEntityContainer="QuanLyBanSach_63134277Entities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="QuanLyBanSach_63134277Model.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MK" ColumnName="MK" />
+          <ScalarProperty Name="TenHienThi" ColumnName="TenHienThi" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietDonHangs">
+      <EntityTypeMapping TypeName="QuanLyBanSach_63134277Model.ChiTietDonHang">
+        <MappingFragment StoreEntitySet="ChiTietDonHang">
+          <ScalarProperty Name="ma_CDH" ColumnName="ma_CDH" />
+          <ScalarProperty Name="ma_DH" ColumnName="ma_DH" />
+          <ScalarProperty Name="ma_Sach" ColumnName="ma_Sach" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="tong" ColumnName="tong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonHangs">
+      <EntityTypeMapping TypeName="QuanLyBanSach_63134277Model.DonHang">
+        <MappingFragment StoreEntitySet="DonHang">
+          <ScalarProperty Name="ma_DH" ColumnName="ma_DH" />
+          <ScalarProperty Name="ma_KH" ColumnName="ma_KH" />
+          <ScalarProperty Name="Ten_KH" ColumnName="Ten_KH" />
+          <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+          <ScalarProperty Name="ngaydat" ColumnName="ngaydat" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="QuanLyBanSach_63134277Model.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="ma_KH" ColumnName="ma_KH" />
+          <ScalarProperty Name="ten_KH" ColumnName="ten_KH" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+          <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiSaches">
+      <EntityTypeMapping TypeName="QuanLyBanSach_63134277Model.LoaiSach">
+        <MappingFragment StoreEntitySet="LoaiSach">
+          <ScalarProperty Name="ma_LS" ColumnName="ma_LS" />
+          <ScalarProperty Name="ten_LS" ColumnName="ten_LS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="QuanLyBanSach_63134277Model.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="ma_NV" ColumnName="ma_NV" />
+          <ScalarProperty Name="ten_NV" ColumnName="ten_NV" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+          <ScalarProperty Name="chucvu" ColumnName="chucvu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Saches">
+      <EntityTypeMapping TypeName="QuanLyBanSach_63134277Model.Sach">
+        <MappingFragment StoreEntitySet="Sach">
+          <ScalarProperty Name="ma_Sach" ColumnName="ma_Sach" />
+          <ScalarProperty Name="ten_Sach" ColumnName="ten_Sach" />
+          <ScalarProperty Name="loai_Sach" ColumnName="loai_Sach" />
+          <ScalarProperty Name="giatien" ColumnName="giatien" />
+          <ScalarProperty Name="anh_Sach" ColumnName="anh_Sach" />
+          <ScalarProperty Name="mota" ColumnName="mota" />
+          <ScalarProperty Name="ma_LS" ColumnName="ma_LS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
