@@ -1,4 +1,4 @@
-/** Book Shop **/
+//** Book Shop **//
 This project is a web application using ASP.NET framework that helps:
 - Users look for, order books quickly and login to save books have been saved.
 - Admin can manage system of the book shop like manage customers, staff, books, orders.
